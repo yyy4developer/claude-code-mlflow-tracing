@@ -201,6 +201,16 @@ claude_code.interaction (root)
 - MLflow UI でのトークン数表示は UI 側のマッピングが未対応（データ自体は spans テーブルの attributes に記録済み）
 - `CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1` はベータ機能。将来変更される可能性あり
 
+### 既知の制限事項（2026-04 時点）
+
+Method 2 は OTEL テーブルへのデータ送信は成功しているが、以下の点が不完全:
+
+- **Interactive モードで `user_prompt` が spans に記録されない**: `claude -p` (非対話) では spans テーブルの `user_prompt` attribute にプロンプトが記録されるが、interactive モードでは空になる。logs テーブルには記録されるため、`prompt.id` で紐づけて補完する必要がある
+- **MLflow UI でのトークン数表示が未対応**: spans テーブルの attributes にはトークン数・コスト等が記録されているが、MLflow 実験 UI のトレース画面では表示されない（UI 側のマッピングが未対応）
+- **OTEL テーブルと MLflow トレースの統合が不完全**: OTEL テーブルにデータはあるが、MLflow UI のトレースタブでの表示・検索体験は改善が必要
+
+これらは Databricks 側の対応により今後改善される見込み。最新の状況は Databricks ドキュメントおよび内部 Slack チャンネルを確認のこと。
+
 ---
 
 ## Bonus: ユーザー定義 AI Gateway エンドポイント
