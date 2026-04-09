@@ -2,8 +2,8 @@
 
 Claude Code の利用ログを Databricks で追跡する2つの方法を検証したプロジェクト。
 
-- **Workspace**: `e2-demo-field-eng.cloud.databricks.com`
-- **AI Gateway**: `https://1444828305810485.ai-gateway.cloud.databricks.com/anthropic`
+- **Workspace**: `<WORKSPACE>.cloud.databricks.com`
+- **AI Gateway**: `https://<AI_GATEWAY_ID>.ai-gateway.cloud.databricks.com/anthropic`
 - **Model**: `databricks-claude-opus-4-6`
 
 ## 検証結果サマリー
