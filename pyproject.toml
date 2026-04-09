@@ -1,0 +1,13 @@
+[project]
+name = "claude-code-mlflow-tracing"
+version = "0.1.0"
+description = "Claude Code tracing verification: MLflow, OTEL, and OTEL-to-MLflow conversion"
+requires-python = ">=3.12"
+dependencies = [
+    "mlflow[databricks]>=3.4",
+    "databricks-sdk>=0.20.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+dev-dependencies = []
